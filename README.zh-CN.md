@@ -10,7 +10,7 @@
 
 ## ✨ 在线预览
 
-https://umijs.github.io/dumi-template/
+https://umijs.github.io/aurora-components/
 
 ## 📒 目录介绍
 
