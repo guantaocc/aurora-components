@@ -1,0 +1,39 @@
+@import '../../../styles/default.less';
+
+@btn-prefix-cls: ~'@{prefix}-btn';
+
+.@{btn-prefix-cls} {
+  line-height: @line-height-base;
+  height: 32px;
+  padding: 0 @spacing-6;
+  display: inline-block;
+  font-weight: 400;
+  background-color: @color-secondary-color;
+  outline: 0;
+  border-color: transparent;
+  color: @color-text-2;
+  appearance: button;
+  height: 32px;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  border-radius: @border-radius-small;
+}
+
+@btn-primary-color-bg: @primary-1;
+@btn-primary-color-text: @white;
+@btn-size-default-border-width: @border-1;
+@btn-primary-border-style: @border-solid;
+@btn-primary-color-border: 'transparent';
+
+.btn-type(@type) {
+  .@{btn-prefix-cls}-@{type}:not(.@{btn-prefix-cls}-disabled) {
+    background-color: ~'@{btn-@{type}-color-bg}';
+    color: ~'@{btn-@{type}-color-text}';
+    border: @btn-size-default-border-width ~'@{btn-@{type}-border-style}' ~'@{btn-@{type}-color-border}';
+  }
+}
+
+// 生成样式
+.btn-type(primary);

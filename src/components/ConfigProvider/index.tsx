@@ -1,11 +1,30 @@
 import React, { createContext } from 'react';
 import { GlobalConfigProps } from './interface';
+import omit from '../_util/omit';
 
-export const globalCtx = createContext<GlobalConfigProps>(
-  {} as GlobalConfigProps,
-);
+// createContext 默认值
+export const ConfigContext = createContext<GlobalConfigProps>({
+  getPrefix: (componentName: string, customPrefix?: string) => {
+    return `${customPrefix || 'aurora'}-${componentName}`;
+  },
+});
 
-export default (props: GlobalConfigProps) => {
-  const { children } = props;
-  return <globalCtx.Provider value={props}>{children}</globalCtx.Provider>;
-};
+function ConfigProvider(props: GlobalConfigProps) {
+  const { children, prefix } = props;
+  function getPrefix(component: string) {
+    return prefix ? `${prefix}-${component}` : `aurora-${component}`;
+  }
+
+  const context: GlobalConfigProps = {
+    ...omit(props, ['children']),
+    getPrefix,
+  };
+
+  return (
+    <ConfigContext.Provider value={context}>{children}</ConfigContext.Provider>
+  );
+}
+
+ConfigProvider.ConfigContext = ConfigContext;
+
+export default ConfigProvider;

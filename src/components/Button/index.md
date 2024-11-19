@@ -32,9 +32,11 @@ group:
 
 ## 基础按钮
 
+按钮分为 primary - 主要按钮、secondary - 次要按钮（默认）、dashed - 虚线按钮、outline - 线形按钮、text - 文本按钮五种类型
+
 ```tsx
 import React from 'react';
-import { Button } from 'aurora-components';
+import { Button, ConfigProvider } from 'aurora-components';
 
-export default () => <Button>按钮</Button>;
+export default () => <Button>默认按钮</Button>;
 ```

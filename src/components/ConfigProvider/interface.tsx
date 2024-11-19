@@ -3,10 +3,15 @@ import { ReactNode } from 'react';
 type GlobalConfigProps = {
   children?: ReactNode;
   /**
-   * @description 主题颜色
+   * @description 国际化主题
    * @default #325DFF
    */
-  globalColor?: string;
+  locale?: string;
+  /**
+   * prefix: 'aurora'
+   */
+  prefix?: string;
+  getPrefix: (component: string) => string;
 };
 
 export { GlobalConfigProps };

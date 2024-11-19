@@ -18,6 +18,6 @@ import React from 'react';
 import { ConfigProvider } from 'aurora-components';
 
 export default () => (
-  <ConfigProvider globalColor={'#1089ff'}>{<App />}</ConfigProvider>
+  <ConfigProvider locale={'zh-CN'}>{<App />}</ConfigProvider>
 );
 ```
